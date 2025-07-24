@@ -18,7 +18,5 @@ export function middleware(req: NextRequest) {
 }
 
 export const config = {
-  matcher: [
-    "/((?!_next|api|favicon.ico|.*\\.(?:svg|png|jpg|jpeg|gif|webp|ico|css|js|woff|woff2|ttf)).*)",
-  ],// protect everything except static/assets
+  matcher: ["/((?!_next|api|favicon.ico|.*\\..*).*)"], // only apply middleware to requests that don't start with /_next
 };

@@ -3,7 +3,7 @@ import Checkbox from "@/components/form/input/Checkbox";
 import Input from "@/components/form/input/InputField";
 import Label from "@/components/form/Label";
 import Button from "@/components/ui/button/Button";
-import { ChevronLeftIcon, EyeCloseIcon, EyeIcon } from "@/icons";
+import { EyeCloseIcon, EyeIcon } from "@/icons";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
@@ -11,15 +11,20 @@ import React, { useState } from "react";
 export default function SignInForm() {
   const [showPassword, setShowPassword] = useState(false);
   const [isChecked, setIsChecked] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const router = useRouter();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
-  const handleLogin = (e: React.FormEvent) => {
+  const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Logging in...");
+    setLoading(true);
+    setError("");
+
+    // Simulate API call delay
+    await new Promise((res) => setTimeout(res, 1000));
 
     // Static credentials
     const staticUser = "admin@example.com";
@@ -32,13 +37,12 @@ export default function SignInForm() {
     } else {
       setError("Invalid username or password");
     }
+    setLoading(false);
   };
 
   return (
     <div className="flex flex-col flex-1 lg:w-1/2 w-full">
-      <div className="w-full max-w-md sm:pt-10 mx-auto mb-5">
-        
-      </div>
+      <div className="w-full max-w-md sm:pt-10 mx-auto mb-5"></div>
       <div className="flex flex-col justify-center flex-1 w-full max-w-md mx-auto">
         <div>
           <div className="mb-5 sm:mb-8">
@@ -50,23 +54,18 @@ export default function SignInForm() {
             </p>
           </div>
           <div>
-            
-            <form onSubmit={handleLogin} >
+            <form onSubmit={handleLogin}>
               <div className="space-y-6">
                 <div>
-                  <Label>
-                    Email <span className="text-error-500">*</span>{" "}
-                  </Label>
+                  <Label>Email <span className="text-error-500">*</span></Label>
                   <Input 
                     type="email"
                     placeholder="Username"
                     value={username}
-                  onChange={(e) => setUsername(e.target.value)} />
+                    onChange={(e) => setUsername(e.target.value)} />
                 </div>
                 <div>
-                  <Label>
-                    Password <span className="text-error-500">*</span>{" "}
-                  </Label>
+                  <Label>Password <span className="text-error-500">*</span></Label>
                   <div className="relative">
                     <Input
                       type={showPassword ? "text" : "password"}
@@ -102,8 +101,8 @@ export default function SignInForm() {
                 </div>
                 {error && <p className="text-red-500 text-sm mb-3">{error}</p>}
                 <div>
-                  <Button type="submit" className="w-full" size="sm">
-                    Sign in
+                  <Button type="submit" className="w-full" size="sm" disabled={loading}>
+                    {loading ? "Signing in..." : "Sign in"}
                   </Button>
                 </div>
               </div>
