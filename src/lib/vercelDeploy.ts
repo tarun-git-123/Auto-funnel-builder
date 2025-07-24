@@ -65,6 +65,7 @@ export async function deployToVercel(dir: string, siteName: string): Promise<str
   }
 
   const data = await res.json();
+  // console.log(data);
   return `https://${data.url}`;
 }
 

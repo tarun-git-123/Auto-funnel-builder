@@ -33,7 +33,7 @@ export default function SignInForm() {
     if (username === staticUser && password === staticPass) {
       document.cookie = "auth=true; path=/"; 
       console.log("Login successful!");
-      router.push("/");
+      router.push("/builder");
     } else {
       setError("Invalid username or password");
     }
