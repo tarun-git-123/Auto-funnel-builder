@@ -1,0 +1,6 @@
+site_name,legal_name,address,ein,email,phone,primary_color,secondary_color,theme_category,campaign_id
+FinSecurePro,FinSecure LLC,"123 Main Street, New York, NY 10001",12-3456789,contact@finsecure.com,123-456-7890,#0044cc,#00cc88,5,101
+TrustBanking,Trust Banking Corp,"456 Elm Avenue, Los Angeles, CA 90001",98-7654321,support@trustbanking.com,987-654-3210,#cc0000,#ffaa00,12,102
+CompliancePlus,Compliance Plus Inc,"789 Oak Blvd, Chicago, IL 60601",56-7890123,info@complianceplus.com,555-123-4567,#222222,#dddddd,8,103
+SecureFunds,Secure Funds Ltd,"321 Pine Street, Miami, FL 33101",11-2233445,help@securefunds.com,444-555-6666,#0088cc,#ff6600,3,104
+RegShield,Regulatory Shield LLC,"654 Cedar Road, Dallas, TX 75001",33-4455667,contact@regshield.com,111-222-3333,#5500aa,#00aa55,20,105

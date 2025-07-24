@@ -13,7 +13,8 @@ export default function UploadCSV({ onComplete }: { onComplete?: () => void }) {
     const res = await fetch("/api/upload", { method: "POST", body: formData });
     const data = await res.json();
     setLoading(false);
-    alert(data.message || "Upload complete");
+    // alert(data.message || "Upload complete");
+    console.log(data);
     onComplete?.();
   };
 

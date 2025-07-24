@@ -13,6 +13,7 @@ export default function Builder() {
   const [batches, setBatches] = useState([]);
 
   const fetchBatches = async () => {
+    console.log("Fetching batches...");
     const res = await fetch("/api/generate");
     const data = await res.json();
     setBatches(data);
