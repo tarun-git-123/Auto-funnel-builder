@@ -17,6 +17,15 @@ export default function Builder() {
     const res = await fetch("/api/generate");
     const data = await res.json();
     setBatches(data);
+    console.log("Fetched batches:", data);
+  };
+
+  const startGeneration = async () => {
+    console.log("Starting generation...");
+    const res = await fetch("/api/generate", { method: "POST" });
+    const data = await res.json();
+    console.log("Generation complete:", data);
+    fetchBatches();
   };
 
   useEffect(() => {
@@ -30,11 +39,11 @@ export default function Builder() {
           Profile
         </h3>
         <div className="space-y-6">
-          <UploadCSV onComplete={fetchBatches}/>
+          <UploadCSV onComplete={startGeneration}/>
       <h2 className="text-xl font-semibold mt-6">Previous Batches</h2>
       <ul className="mt-4 space-y-2">
         {batches.map((batch: any) => (
-          <li key={batch.id} className="p-4 bg-white shadow rounded">
+          <li key={batch.site_name} className="p-4 bg-white shadow rounded">
             <div className="flex justify-between">
               <div>
                 <p className="font-semibold">{batch.site_name}</p>
