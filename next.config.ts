@@ -9,6 +9,9 @@ const nextConfig: NextConfig = {
     });
     return config;
   },
+  images: {
+    domains: ['images.unsplash.com'], // ✅ Add this line
+  },
 };
 
 export default nextConfig;

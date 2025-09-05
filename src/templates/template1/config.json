@@ -1,0 +1,62 @@
+{
+    "siteName": "my-site",
+    "template": "template1",
+    "campaignId": "21",
+    "products": [
+      {
+        "id": "1",
+        "price": 9.99
+      },
+      {
+        "id": "2",
+        "price": 19.5
+      },
+      {
+        "id": "3",
+        "price": 29.9
+      },
+      {
+        "id": "4",
+        "price": 39.99
+      },
+      {
+        "id": "5",
+        "price": 49.99
+      },
+      {
+        "id": "6",
+        "price": 59.5
+      },
+      {
+        "id": "7",
+        "price": 69.99
+      },
+      {
+        "id": "8",
+        "price": 79.99
+      },
+      {
+        "id": "9",
+        "price": 89.5
+      },
+      {
+        "id": "10",
+        "price": 99.99
+      },
+      {
+        "id": "11",
+        "price": 109.9
+      },
+      {
+        "id": "12",
+        "price": 119.5
+      }
+    ],
+    "company": {
+      "name": "Abc company llc",
+      "address": "123 ABC read , NewYork, CA 85295",
+      "ein": "9898989898",
+      "email": "support@example.com",
+      "phone": "(999) 9999999"
+    }
+}

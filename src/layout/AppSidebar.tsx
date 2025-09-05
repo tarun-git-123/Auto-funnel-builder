@@ -21,20 +21,20 @@ import SidebarWidget from "./SidebarWidget";
 
 type NavItem = {
   name: string;
-  icon: React.ReactNode;
+  icon?: React.ReactNode;
   path?: string;
   subItems?: { name: string; path: string; pro?: boolean; new?: boolean }[];
 };
 
 const navItems: NavItem[] = [
-  
-  
   {
-    icon: <UserCircleIcon />,
-    name: "Builder",
-    path: "/builder",
+    name: "Funnels",
+    path: "/funnels",
   },
-
+  {
+    name: "CRM",
+    path: "/crm",
+  }
 ];
 
 const othersItems: NavItem[] = [
@@ -301,23 +301,6 @@ const AppSidebar: React.FC = () => {
                 )}
               </h2>
               {renderMenuItems(navItems, "main")}
-            </div>
-
-            <div className="">
-              <h2
-                className={`mb-4 text-xs uppercase flex leading-[20px] text-gray-400 ${
-                  !isExpanded && !isHovered
-                    ? "lg:justify-center"
-                    : "justify-start"
-                }`}
-              >
-                {isExpanded || isHovered || isMobileOpen ? (
-                  "Others"
-                ) : (
-                  <HorizontaLDots />
-                )}
-              </h2>
-              {renderMenuItems(othersItems, "others")}
             </div>
           </div>
         </nav>

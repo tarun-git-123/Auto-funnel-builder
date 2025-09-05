@@ -1,0 +1,8 @@
+{
+    "HeroSection": "HeroSection.tsx",
+    "AboutSection": "AboutSection.tsx",
+    "ServicesSection": "ServicesSection.tsx",
+    "HowItWorksSection": "HowItWorksSection.tsx",
+    "PricingSection": "PricingSection.tsx",
+    "CtaSection": "CtaSection.tsx"
+}
