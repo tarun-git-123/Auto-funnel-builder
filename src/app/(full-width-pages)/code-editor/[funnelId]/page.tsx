@@ -2,6 +2,7 @@ import { connectToDB } from '@/lib/mongodb'
 import { Funnel } from '@/models/Funnel';
 import React from 'react'
 import CodeEditorWrapper from './CodeEditorWrapper';
+import { EditorProvider } from '@/context/EditorContext';
 export default async function codeEditorPage({ params }: { params: { funnelId: string } }) {
     const { funnelId } = (await params)
     await connectToDB();
@@ -10,11 +11,11 @@ export default async function codeEditorPage({ params }: { params: { funnelId: s
 
     return (
         <>
-            
             <div className="w-full h-full text-white">
-                <CodeEditorWrapper funnelName={funnel.siteName} funnelUrl={funnel.deployedUrl}/>
+                <EditorProvider funnelName={funnel.siteName} funnelUrl={funnel.deployedUrl}>
+                    <CodeEditorWrapper/>
+                </EditorProvider>
             </div>
         </>
-
     )
 }

@@ -63,7 +63,7 @@ export interface EditorState {
 	selectedPath: string | null;
 	fileTree: FileType[];
 	openedFiles: EditorOpenedFile[];
-	activeFile: EditorOpenedFile
+	activeFile: EditorOpenedFile | null;
 	theme:string;
 	loading: boolean;
 }

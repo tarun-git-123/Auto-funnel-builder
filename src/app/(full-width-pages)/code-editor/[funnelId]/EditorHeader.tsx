@@ -2,94 +2,23 @@
 import { ThemeToggleButton } from "@/components/common/ThemeToggleButton";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import React, { useState } from "react";
-import { Save, Play, Eye, Sun, Moon, Check, X } from "lucide-react";
-import { EditorState } from "@/types/site-config";
+import React from "react";
+import { Save, Play, Eye, Sun, Moon } from "lucide-react";
+import Toast from "@/components/Toast";
+import { useEditor } from "@/context/EditorContext";
 
-interface EditorHeaderProps {
-    editorState: EditorState;
-    funnelName: string;
-    setState: (updates: Partial<EditorState>) => void;
-    funnelUrl: string;
-}
-
-const EditorHeader: React.FC<EditorHeaderProps> = ({
-    editorState,
-    funnelName,
-    setState,
-    funnelUrl
-}) => {
+const EditorHeader = () => {
+    const {
+        editorState, 
+        setState, 
+        toast, 
+        funnelUrl, 
+        loading, 
+        handlePreview,
+        handleFileSave, 
+        } = useEditor();
     const router = useRouter();
-    const [loading, setLoading] = useState<boolean>(false);
-    const [toast, setToast] = useState<{ message: string; show: boolean, color: string }>({
-        message: "",
-        show: false,
-        color: ""
-    });
-
-    const showToast = (message: string, color: string) => {
-        setToast({ message, show: true, color });
-        setTimeout(() => setToast({ message: "", show: false, color: "" }), 4000); // auto hide
-    };
-
-
-    async function handleFileSave() {
-        try {
-            if(!editorState.activeFile) return
-            const file = editorState.activeFile;
-            if (!file || !file.dirty) {
-                showToast("No changes to save", "bg-yellow-600");
-                return;
-            }
-
-            setLoading(true);
-            const res = await fetch(`/api/files/saveFile`, {
-                method: 'POST',
-                body: JSON.stringify({filePath:editorState.activeFile, funnelName: funnelName}),
-                headers: {
-                    'Content-Type': 'application/json'
-                }
-            });
-
-            if (!res.ok) throw new Error("Failed to save file");
-
-            showToast("File saved successfully", "bg-green-700");
-
-            setState({
-                activeFile:{...file, dirty:false},
-                openedFiles: editorState.openedFiles.map((f)=>(
-                    f.path === file.path? {...f, dirty:false}:f
-                ))
-            })
-        } catch (err: unknown) {
-            if (err instanceof Error) {
-                console.log(err.message);
-                showToast("Unable to save file. Please try again later.", "bg-red-700");
-            }
-        } finally {
-            setLoading(false);
-        }
-    }
-
-
-    const handlePreview = async () => {
-        try {
-            setLoading(true);
-            const res = await fetch("/api/deploy/cli/preview/", {
-                method: "POST",
-                body: JSON.stringify({ funnelName }),
-                headers: { "Content-Type": "application/json" },
-            });
-
-            const data = await res.json();
-        } catch (error: unknown) {
-            if (error instanceof Error) {
-                console.log(error.message);
-            }
-        } finally {
-            setLoading(false);
-        }
-    };
+    
 
     return (
         <>
@@ -175,18 +104,7 @@ const EditorHeader: React.FC<EditorHeaderProps> = ({
                 </div>
             </header>
 
-            {toast.show && (
-                <div className={`fixed z-[99999] top-6 left-1/2 -translate-x-1/2 flex items-center gap-3 ${toast.color} text-white px-6 py-2 rounded-lg shadow-lg animate-slide-from-top`}>
-
-                    <span>{toast.message}</span>
-                    <button
-                        onClick={() => setToast({ message: "", show: false, color: "" })}
-                        className="ml-3 text-white hover:text-gray-200"
-                    >
-                        <X size={16} />
-                    </button>
-                </div>
-            )}
+            <Toast toast={toast} />
         </>
     );
 };

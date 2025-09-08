@@ -28,7 +28,7 @@ export default function ReDeployButton({ projectPath, siteName }: { projectPath:
         });
 
         const data = await res.json();
-        console.log(data);
+        //console.log(data);
 
         // if the response is not 200, show the error message
         if (!res.ok) {
@@ -49,7 +49,6 @@ export default function ReDeployButton({ projectPath, siteName }: { projectPath:
                 setProgress(0);
             }, 1000);
         }
-        // show the success message
     };
 
     // fake progress 
@@ -164,8 +163,6 @@ export default function ReDeployButton({ projectPath, siteName }: { projectPath:
                     <p className="text-lg leading-6 text-green-500 dark:text-gray-400">
                         {result}
                     </p>
-
-
 
                     {/* <div className="flex items-center justify-center w-full gap-3 mt-7">
                         <button

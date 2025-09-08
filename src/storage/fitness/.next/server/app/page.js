@@ -141,15 +141,25 @@ var map = {
 		"(rsc)/./components/home/ServicesSection.tsx",
 		9
 	],
-	"./gallary": [
-		"(rsc)/./components/home/gallary.tsx",
+	"./price/galary": [
+		"(rsc)/./components/home/price/galary.tsx",
 		7,
-		"_rsc_components_home_gallary_tsx"
+		"_rsc_components_home_price_galary_tsx"
 	],
-	"./gallary.tsx": [
-		"(rsc)/./components/home/gallary.tsx",
+	"./price/galary.tsx": [
+		"(rsc)/./components/home/price/galary.tsx",
 		7,
-		"_rsc_components_home_gallary_tsx"
+		"_rsc_components_home_price_galary_tsx"
+	],
+	"./test": [
+		"(rsc)/./components/home/test.tsx",
+		7,
+		"_rsc_components_home_test_tsx"
+	],
+	"./test.tsx": [
+		"(rsc)/./components/home/test.tsx",
+		7,
+		"_rsc_components_home_test_tsx"
 	]
 };
 function webpackAsyncContext(req) {
@@ -668,7 +678,7 @@ module.exports = require("util");
 var __webpack_require__ = require("../webpack-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-var __webpack_exports__ = __webpack_require__.X(0, ["vendor-chunks/next","vendor-chunks/framer-motion","vendor-chunks/motion-dom","vendor-chunks/styled-jsx","vendor-chunks/motion-utils","vendor-chunks/@swc"], () => (__webpack_exec__("(rsc)/../../../node_modules/next/dist/build/webpack/loaders/next-app-loader/index.js?name=app%2Fpage&page=%2Fpage&appPaths=%2Fpage&pagePath=private-next-app-dir%2Fpage.tsx&appDir=C%3A%5Cnextjs%5Cfunnel-builder%5Csrc%5Cstorage%5Cfitness%5Capp&pageExtensions=tsx&pageExtensions=ts&pageExtensions=jsx&pageExtensions=js&rootDir=C%3A%5Cnextjs%5Cfunnel-builder%5Csrc%5Cstorage%5Cfitness&isDev=true&tsconfigPath=tsconfig.json&basePath=&assetPrefix=&nextConfigOutput=&preferredRegion=&middlewareConfig=e30%3D&isGlobalNotFoundEnabled=!")));
+var __webpack_exports__ = __webpack_require__.X(0, ["vendor-chunks/next","vendor-chunks/framer-motion","vendor-chunks/motion-dom","vendor-chunks/motion-utils","vendor-chunks/@swc","vendor-chunks/styled-jsx"], () => (__webpack_exec__("(rsc)/../../../node_modules/next/dist/build/webpack/loaders/next-app-loader/index.js?name=app%2Fpage&page=%2Fpage&appPaths=%2Fpage&pagePath=private-next-app-dir%2Fpage.tsx&appDir=C%3A%5Cnextjs%5Cfunnel-builder%5Csrc%5Cstorage%5Cfitness%5Capp&pageExtensions=tsx&pageExtensions=ts&pageExtensions=jsx&pageExtensions=js&rootDir=C%3A%5Cnextjs%5Cfunnel-builder%5Csrc%5Cstorage%5Cfitness&isDev=true&tsconfigPath=tsconfig.json&basePath=&assetPrefix=&nextConfigOutput=&preferredRegion=&middlewareConfig=e30%3D&isGlobalNotFoundEnabled=!")));
 module.exports = __webpack_exports__;
 
 })();
